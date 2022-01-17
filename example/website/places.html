@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <title>Uglow Family Album - places</title>
+      <link rel="stylesheet" href="public/lightgallery/css/lightgallery.css" />
+      <link rel="stylesheet" href="public/videojs/video-js.min.css" />
+      <link rel="stylesheet" href="public/lightgallery/css/lg-exif.min.css" />
+      <link rel="stylesheet" href="public/core.css" />
+      <link rel="stylesheet" href="public/theme.css" />
+  </head>
+
+  <body>
+
+    
+    <div id="container">
+    
+      <!--
+        Gallery title
+      -->
+      <header>
+        <h1><a href="index.html">Uglow Family Album</a></h1>
+      </header>
+    
+      <!--
+        Breadcrumbs of parent albums
+      -->
+      <nav class="breadcrumbs">
+    <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="places.html">places</a>
+      </nav>
+    
+      <!--
+        Nested albums, if any
+      -->
+      <div id="albums">
+    <a href="places-mountains.html" style="background-image: url('media/small/places/mountains/photo-1463946377180-f5185c2783e52.jpg')">
+            <div class="info">
+              <h3>mountains</h3>
+              <div class="summary">1 photo</div>
+              <div class="date">17 Jan 2022 - 17 Jan 2022</div>
+            </div>
+          </a>  </div>
+    
+      <!--
+        All photos and videos
+      -->
+      <ul id="media" class="clearfix">
+          
+            <li data-src="media/large/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
+                data-sub-html=""
+                data-download-url="../input/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
+          
+                data-filename="photo-1475619530555-3a7fb01c7c4f2.jpg"
+          
+              >
+              <a href="../input/places/photo-1475619530555-3a7fb01c7c4f2.jpg">
+                <img src="media/thumbs/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
+                     width="200"
+                     height="200"
+                     alt="photo-1475619530555-3a7fb01c7c4f2.jpg" />
+              </a>
+          
+          
+                <button type="button" class="star" data-fav="true" data-path="places/photo-1475619530555-3a7fb01c7c4f2.jpg">⭐️</button>
+            </li>      
+            <li data-html="#media5"
+                data-download-url="../input/places/IMG_20211111_145154.mp4">
+              <a href="../input/places/IMG_20211111_145154.mp4">
+                <img src="media/thumbs/places/IMG_20211111_145154.jpg"
+                     width="200"
+                     height="200"
+                     alt="IMG_20211111_145154.mp4" />
+              </a>
+              <img class="video-overlay" src="public/play.png" />
+          
+                <button type="button" class="star" data-fav="false" data-path="places/IMG_20211111_145154.mp4">⭐️</button>
+            </li>  </ul>
+    
+      <!--
+        Pagination
+      -->
+    
+      <!--
+        Zip file link
+      -->
+    
+    
+      <!--
+        Optional footer
+      -->
+    
+    </div>
+    <!-- Video loader -->
+    <div id="videos">
+          <div id="media5" style="display:none;">
+            <video class="lg-video-object lg-html5 video-js vjs-default-skin vjs-big-play-centered"  poster="media/large/places/IMG_20211111_145154.jpg" preload="none" controls>
+              <source src="media/large/places/IMG_20211111_145154.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video
+            </video>
+          </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="public/jquery.min.js"></script>
+    <!-- VideoJS -->
+    <script src="public/videojs/video.min.js"></script>
+    <!-- LightGallery -->
+    <script src="public/lightgallery/js/lightgallery-all.min.js"></script>
+    <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <script src="public/lightgallery/js/lg-fav.js"></script>
+    <!-- Favourite library -->
+    <script src="public/favourite/favourite.js"></script>
+
+    <script>
+      // Instantiate LightGallery for the media elements
+      $(document).ready(function() {
+        $("#media").lightGallery({
+          thumbWidth: 80,
+          controls: true,
+          loop : false,
+          download: true,
+          counter: true,
+          videojs: true,
+          fullScreen: true,
+          zoom: true
+        });
+      });
+    </script>
+
+
+  </body>
+
+</html>

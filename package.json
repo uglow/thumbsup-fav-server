@@ -1,0 +1,63 @@
+{
+  "name": "fav-server",
+  "version": "1.0.0",
+  "description": "Small Express API to persist changes to favourites in your thumbsup website",
+  "main": "src/index.js",
+  "keywords": [
+    "thumbsup",
+    "favourite",
+    "theme-cards-fav"
+  ],
+  "author": "Brett Uglow",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "commit-msg": "cz-customizable-ghooks",
+    "test": "npm run test:unit -- --watch",
+    "test:unit": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:report": "npm run test:unit -- --coverage",
+    "lint": "eslint --fix bin/* src/*",
+    "verify": "eslint --max-warnings=0 bin/ src/",
+    "pre-push": "npm-run-all verify test:report --silent",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "commitMessageConfig.cjs"
+    }
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "debounce": "1.2.1",
+    "express": "4.17.2",
+    "ini": "2.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "27.0.6",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/commit-analyzer": "8.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/github": "7.2.3",
+    "@semantic-release/npm": "7.1.3",
+    "@semantic-release/release-notes-generator": "9.0.3",
+    "cz-customizable": "5.2.0",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-unicorn": "34.0.1",
+    "husky": "7.0.0",
+    "jest": "27.0.6",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.2",
+    "semantic-release": "17.4.4",
+    "nodemon": "2.0.15"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

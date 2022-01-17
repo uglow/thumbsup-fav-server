@@ -1,0 +1,13 @@
+{
+  "title": "Uglow Family Album",
+  "thumb-size": 200,
+  "large-size": 1500,
+  "photo-download": "link",
+  "video-download": "link",
+  "sort-albums-by": "start-date",
+  "theme-path": "/config/theme-cards-fav/theme",
+  "theme-style": "/config/apiEndpoint.less",
+  "cleanup": true,
+  "usage-stats": false,
+  "albums-from": ["%path", "file:///config/theme-cards-fav/albums-from/favourite.js"]
+}

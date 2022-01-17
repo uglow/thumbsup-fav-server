@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <title>Uglow Family Album - nature</title>
+      <link rel="stylesheet" href="public/lightgallery/css/lightgallery.css" />
+      <link rel="stylesheet" href="public/videojs/video-js.min.css" />
+      <link rel="stylesheet" href="public/lightgallery/css/lg-exif.min.css" />
+      <link rel="stylesheet" href="public/core.css" />
+      <link rel="stylesheet" href="public/theme.css" />
+  </head>
+
+  <body>
+
+    
+    <div id="container">
+    
+      <!--
+        Gallery title
+      -->
+      <header>
+        <h1><a href="index.html">Uglow Family Album</a></h1>
+      </header>
+    
+      <!--
+        Breadcrumbs of parent albums
+      -->
+      <nav class="breadcrumbs">
+    <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="nature.html">nature</a>
+      </nav>
+    
+      <!--
+        Nested albums, if any
+      -->
+      <div id="albums">
+      </div>
+    
+      <!--
+        All photos and videos
+      -->
+      <ul id="media" class="clearfix">
+          
+            <li data-src="media/large/nature/photo-1473603477862-9d352d4615e12.jpg"
+                data-sub-html=""
+                data-download-url="../input/nature/photo-1473603477862-9d352d4615e12.jpg"
+          
+                data-filename="photo-1473603477862-9d352d4615e12.jpg"
+          
+              >
+              <a href="../input/nature/photo-1473603477862-9d352d4615e12.jpg">
+                <img src="media/thumbs/nature/photo-1473603477862-9d352d4615e12.jpg"
+                     width="200"
+                     height="200"
+                     alt="photo-1473603477862-9d352d4615e12.jpg" />
+              </a>
+          
+          
+                <button type="button" class="star" data-fav="false" data-path="nature/photo-1473603477862-9d352d4615e12.jpg">⭐️</button>
+            </li>      
+            <li data-src="media/large/nature/photo-1459666644539-a9755287d6b02.jpg"
+                data-sub-html=""
+                data-download-url="../input/nature/photo-1459666644539-a9755287d6b02.jpg"
+          
+                data-filename="photo-1459666644539-a9755287d6b02.jpg"
+          
+              >
+              <a href="../input/nature/photo-1459666644539-a9755287d6b02.jpg">
+                <img src="media/thumbs/nature/photo-1459666644539-a9755287d6b02.jpg"
+                     width="200"
+                     height="200"
+                     alt="photo-1459666644539-a9755287d6b02.jpg" />
+              </a>
+          
+          
+                <button type="button" class="star" data-fav="false" data-path="nature/photo-1459666644539-a9755287d6b02.jpg">⭐️</button>
+            </li>  </ul>
+    
+      <!--
+        Pagination
+      -->
+    
+      <!--
+        Zip file link
+      -->
+    
+    
+      <!--
+        Optional footer
+      -->
+    
+    </div>
+    <!-- Video loader -->
+    <div id="videos">
+    </div>
+
+    <!-- jQuery -->
+    <script src="public/jquery.min.js"></script>
+    <!-- VideoJS -->
+    <script src="public/videojs/video.min.js"></script>
+    <!-- LightGallery -->
+    <script src="public/lightgallery/js/lightgallery-all.min.js"></script>
+    <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <script src="public/lightgallery/js/lg-fav.js"></script>
+    <!-- Favourite library -->
+    <script src="public/favourite/favourite.js"></script>
+
+    <script>
+      // Instantiate LightGallery for the media elements
+      $(document).ready(function() {
+        $("#media").lightGallery({
+          thumbWidth: 80,
+          controls: true,
+          loop : false,
+          download: true,
+          counter: true,
+          videojs: true,
+          fullScreen: true,
+          zoom: true
+        });
+      });
+    </script>
+
+
+  </body>
+
+</html>
