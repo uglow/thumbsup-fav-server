@@ -54,15 +54,15 @@ function doRebuild() {
   });
 
   thumbsup.on('error', (data) => {
-    console.error(`${data}`);
+    console.error(`${data}`.trimEnd());
   });
 
   thumbsup.stdout.on('data', (data) => {
-    console.log(`${data}`);
+    console.log(`${data}`.trimEnd());
   });
 
   thumbsup.stderr.on('data', (data) => {
-    console.error(`${data}`);
+    console.error(`${data}`.trimEnd());
   });
 }
 

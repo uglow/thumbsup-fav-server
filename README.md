@@ -122,8 +122,7 @@ To build and test the docker image locally:
 ### Website not building
 
 The first time you run this container, **it will take a long time before the website is generated**.
-You may even find that the container hangs. This seems to be because the video-conversion process
-(using ffmpeg) hangs from time-to-time. **Don't worry!** Just restart the Docker container, and Thumbsup
+You may even find that the container hangs. **Don't worry!** Just restart the Docker container, and Thumbsup
 will resume where it left off.
 
 In terms of time, it took over 8 hours to finish building the website for 182 GB of images and videos, including hang-time.
