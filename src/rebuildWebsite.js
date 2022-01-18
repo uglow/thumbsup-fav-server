@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const { getConfig } = require('./config');
 const debounce = require('debounce');
 
@@ -38,29 +38,31 @@ function doRebuild() {
   // Reset the fileQueue
   fileQueue = [];
 
-  console.log(`Rebuilding website${params && ' with params' + params}`);
+  console.log(` ----------------- Rebuilding website${params && ' with params' + params} -----------------`);
 
-  exec(`${rebuildCmd} ${params}`, (err, stdout, stdErr) => {
+  // This is really dangerous to accept input and run it. But we need to support testing, and this is expedient.
+  const [cmdName, ...cmdArgs] = rebuildCmd.split(' ');
+  const thumbsup = spawn(cmdName, cmdArgs);
+
+  thumbsup.on('close', (code) => {
+    console.log(` ----------------- Thumbsup exited with code ${code}  -----------------`);
     isRebuilding = false;
 
-    if (err) {
-      const errorCode = err.code;
-      console.error(`Exit code ${errorCode}`);
-      console.error(err);
-    }
-
-    if (stdErr) {
-      console.error(stdErr);
-    }
-
-    if (stdout) {
-      console.log(stdout);
-    }
-
-    // Recursive call
     if (fileQueue.length) {
       rebuildWebsite();
     }
+  });
+
+  thumbsup.on('error', (data) => {
+    console.error(`${data}`);
+  });
+
+  thumbsup.stdout.on('data', (data) => {
+    console.log(`${data}`);
+  });
+
+  thumbsup.stderr.on('data', (data) => {
+    console.error(`${data}`);
   });
 }
 

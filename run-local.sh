@@ -12,6 +12,6 @@ docker run -t \
   -u root \
   -p 8080:8080 \
   fav-server \
-  rebuildDelay=10
+  rebuildDelay=1
 
 

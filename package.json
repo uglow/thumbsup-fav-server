@@ -12,6 +12,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.js -- inputDir=/input rebuildCmd='thumbsup --input /input --output /output --config /config/config.json'",
+    "start:local": "nodemon src/index.js -- inputDir=./example/input rebuildCmd='./thumbgen.sh'",
     "commit-msg": "cz-customizable-ghooks",
     "test": "npm run test:unit -- --watch",
     "test:unit": "node --experimental-vm-modules node_modules/.bin/jest",
@@ -28,6 +29,10 @@
     "cz-customizable": {
       "config": "commitMessageConfig.cjs"
     }
+  },
+  "nodemonConfig": {
+    "ignore": ["example/*"],
+    "delay": 2500
   },
   "dependencies": {
     "cors": "2.8.5",
