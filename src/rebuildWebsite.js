@@ -4,9 +4,16 @@ const debounce = require('debounce');
 
 let fileQueue = [];
 let isRebuilding = false;
-const rebuildWebsite = debounce(doRebuild, 3000, false);
+let rebuildWebsite;
 
 function rebuildWebsiteForFile(filename = '') {
+  // First time initialisation for debounce
+  if (!rebuildWebsite) {
+    const rebuildDelayMillis = Number(getConfig().rebuildDelay || 3) * 1000;
+    console.log('rebuildDelayMillis', rebuildDelayMillis);
+    rebuildWebsite = debounce(doRebuild, rebuildDelayMillis, false);
+  }
+
   if (filename) {
     fileQueue.push(filename);
   }

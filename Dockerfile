@@ -8,7 +8,7 @@ COPY . /app
 WORKDIR /app
 
 # Install dependencies
-RUN npm install
+RUN npm install --production
 
 # Expose API port to the outside
 EXPOSE 8080

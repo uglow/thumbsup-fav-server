@@ -10,7 +10,7 @@ const config = {};
  * @param newConfig.incremental {string} Whether the build is incremental.
  */
 function setConfig(newConfig) {
-  const { inputDir, rebuildCmd, incremental = 'false' } = newConfig;
+  const { inputDir, rebuildCmd, rebuildDelay, incremental = 'false' } = newConfig;
 
   config.inputDir = path.resolve(process.cwd(), inputDir);
   console.log('inputDir', config.inputDir);
@@ -21,6 +21,9 @@ function setConfig(newConfig) {
 
   config.rebuildCmd = rebuildCmd;
   console.log('rebuildCmd', config.rebuildCmd);
+
+  config.rebuildDelay = rebuildDelay;
+  console.log('rebuildDelay', config.rebuildDelay);
 
   config.incremental = incremental === 'true';
   console.log('incremental', config.incremental);

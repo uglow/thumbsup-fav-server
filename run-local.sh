@@ -12,6 +12,6 @@ docker run -t \
   -u root \
   -p 8080:8080 \
   fav-server \
-  inputDir=/input \
-  rebuildCmd="thumbsup --input /input --output /output --config /config/config.json"
+  rebuildDelay=10
+
 

@@ -11,7 +11,7 @@
   "author": "Brett Uglow",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/index.js -- inputDir=/input rebuildCmd='thumbsup --input /input --output /output --config /config/config.json'",
     "commit-msg": "cz-customizable-ghooks",
     "test": "npm run test:unit -- --watch",
     "test:unit": "node --experimental-vm-modules node_modules/.bin/jest",
