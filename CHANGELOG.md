@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.1...v1.0.2) (2022-01-20)
+
+
+### Bug Fixes
+
+* add missing patch file ([9a37406](https://github.com/uglow/thumbsup-fav-server/commit/9a3740611162391353e45e9eb7b8351d950f5462))
+
 ## [1.0.1](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.0...v1.0.1) (2022-01-20)
 
 
