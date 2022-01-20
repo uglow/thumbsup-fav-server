@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.0...v1.0.1) (2022-01-20)
+
+
+### Bug Fixes
+
+* change Docker COPY command (works locally, but not on GitHub) ([e3f60db](https://github.com/uglow/thumbsup-fav-server/commit/e3f60dbfcca87ecfeb3847a560dd7216c9b91e01))
+
 # 1.0.0 (2022-01-20)
 
 
