@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.2...v1.0.3) (2022-01-20)
+
+
+### Bug Fixes
+
+* publish to docker only on release (via NPM, hopefully) ([11a714f](https://github.com/uglow/thumbsup-fav-server/commit/11a714f317edbfa5f1a01803f6b8b5935221999f))
+
 ## [1.0.2](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.1...v1.0.2) (2022-01-20)
 
 
