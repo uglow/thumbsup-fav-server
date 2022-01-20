@@ -117,6 +117,14 @@ To build and test the docker image locally:
 3. `docker build -t fav-server .` to build the docker image locally (TODO: this is temporary until we host this image somewhere)
 4. `./run-local.sh` to start the server in Docker.
 
+## Patch folder
+
+There is often a delay between raising an issue and receiving the feature/fix. To avoid having to wait too long,
+the files in the `/patch` folder provide a simple way to add missing features until such time as upstream packages are updated (and there is a chance they may never be updated).
+
+Current patches:
+- `patch/thumbsup/node_modules/thumbsup/src/components/index/glob.js`, a fix for [adding mpg support](https://github.com/thumbsup/thumbsup/issues/280). 
+
 ## Troubleshooting
 
 ### Website not building
@@ -127,7 +135,7 @@ will resume where it left off.
 
 In terms of time, it took over 8 hours to finish building the website for 182 GB of images and videos, including hang-time.
 The build is finished once the `/web` folder on Synology contains a bunch of `*.html` files, representing
-the different albums.
+the different albums. Increasing available RAM improves performance.
 
 ### Device is slow while building
 

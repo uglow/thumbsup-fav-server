@@ -10,6 +10,9 @@ WORKDIR /app
 # Install dependencies
 RUN npm install --production
 
+# Install patches over the top(add mpg support)
+COPY ./patch /
+
 # Expose API port to the outside
 EXPOSE 8080
 
