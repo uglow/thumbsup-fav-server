@@ -44,11 +44,7 @@ app.post('/thumbsup', (req, res) => {
 app.get('/thumbsup/rebuild', (req, res) => {
   rebuildWebsiteForFile(); // This will spawn a process, but we can call it lots of times because it uses debounce
 
-  if (result) {
-    res.json({ status: 'updated' });
-  } else {
-    res.status(500).json({ status: 'not updated' });
-  }
+  res.json({ status: 'updated' });
 });
 
 module.exports = (apiConfig) => {
