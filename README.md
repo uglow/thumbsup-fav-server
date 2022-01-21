@@ -125,6 +125,10 @@ the files in the `/patch` folder provide a simple way to add missing features un
 Current patches:
 - `patch/thumbsup/node_modules/thumbsup/src/components/index/glob.js`, a fix for [adding mpg support](https://github.com/thumbsup/thumbsup/issues/280). 
 
+## Upgrading
+
+When installing a new Docker image, repeat steps 1,2 and 4 in "Installation - Synology".
+
 ## Troubleshooting
 
 ### Website not building
