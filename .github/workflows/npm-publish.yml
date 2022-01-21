@@ -69,5 +69,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.MY_REPO_WORKFLOW_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - run: echo ${{ steps.semantic.outputs }}
