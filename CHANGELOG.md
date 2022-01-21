@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.3...v1.0.4) (2022-01-21)
+
+
+### Bug Fixes
+
+* **ci:** try to trigger publish docker workflow from semantic release ([70e9096](https://github.com/uglow/thumbsup-fav-server/commit/70e9096d95724ff071107cecc08b7506948479b2))
+
 ## [1.0.3](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.2...v1.0.3) (2022-01-20)
 
 
