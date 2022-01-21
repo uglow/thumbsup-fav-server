@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.5...v1.0.6) (2022-01-21)
+
+
+### Bug Fixes
+
+* cleanup CI workflow now that it is working ([2053289](https://github.com/uglow/thumbsup-fav-server/commit/20532897d40f65131f91cff16409f2bcca5f6d59))
+
 ## [1.0.5](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.4...v1.0.5) (2022-01-21)
 
 
