@@ -1,6 +1,6 @@
 {
   "name": "fav-server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Small Express API to persist changes to favourites in your thumbsup website",
   "main": "src/index.js",
   "repository": {

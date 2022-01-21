@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.4...v1.0.5) (2022-01-21)
+
+
+### Bug Fixes
+
+* **ci:** use PAT for workflow to trigger next workflow ([c7bc907](https://github.com/uglow/thumbsup-fav-server/commit/c7bc9070e9eb19a0a93dbc2da3b752c01c9117ab))
+
 ## [1.0.4](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.3...v1.0.4) (2022-01-21)
 
 
