@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+title Development Outside of Docker\n
+
+skinparam componentStyle rectangle
+hide stereotype
+
+skinparam rectangle {
+    backgroundColor<<entryPoint>> Yellow
+}
+
+package "Local File System (repo)" {
+  [**npm run start:local**\n/package.json] <<entryPoint>> as entrypoint
+  [**Server**\n/src/index.js] as server
+  '\[Patches - not used\n/patch] as patch
+  [**Config param**\n/app/fixtures/config.json] as config
+  [**config.theme**\n/app/theme-cards-fav] as theme
+  [**config.themeStyle**\n/app/fixtures/apiEndpoint.less] as style
+  [**config.albumsFrom**\n/app/theme-cards-fav/albums-from/favourite.js] as style
+
+
+  rectangle "Rebuild Command\n/thumbsup.sh" as rebuild {
+    [/example/input] as inputSrc
+    [/example/website] as outputSrc
+    [/] as repo
+
+    package "ThumbsUp Docker " {
+      [**Volume /input**] as inputDocker
+      [**Volume /output**] as outputDocker
+      [**Volume /app**] as configDocker
+    }
+  }
+}
+
+
+entrypoint --> server
+entrypoint ..> rebuild
+server ---> rebuild
+
+inputSrc ---> inputDocker
+outputSrc ---> outputDocker
+repo ---> configDocker
+
+configDocker --> config
+config --> theme
+config --> style
+
+@enduml

@@ -16,6 +16,7 @@
 
     {{> content}}
     {{> video-loader}}
+    {{> qrcode}}
 
     <!-- jQuery -->
     <script src="{{relative 'public/jquery.min.js'}}"></script>
@@ -24,9 +25,14 @@
     <!-- LightGallery -->
     <script src="{{relative 'public/lightgallery/js/lightgallery-all.min.js'}}"></script>
     <script src="{{relative 'public/lightgallery/js/lg-exif.min.js'}}"></script>
+    <!-- Our Extensions to LightGallery -->
     <script src="{{relative 'public/lightgallery/js/lg-fav.js'}}"></script>
-    <!-- Favourite library -->
+    <script src="{{relative 'public/lightgallery/js/lg-qrcode.js'}}"></script>
+    <!-- Favourite JS library -->
     <script src="{{relative 'public/favourite/favourite.js'}}"></script>
+    <!-- QR Code JS library -->
+    <script src="{{relative 'public/qr/qrious.min.js'}}"></script>
+    <script src="{{relative 'public/qr/qr.js'}}"></script>
 
     <script>
       // Instantiate LightGallery for the media elements
@@ -43,8 +49,6 @@
         });
       });
     </script>
-
-    {{> analytics}}
 
   </body>
 

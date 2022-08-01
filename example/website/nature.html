@@ -29,6 +29,10 @@
       -->
       <nav class="breadcrumbs">
     <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="nature.html">nature</a>
+        <!-- Generate QR code for current URL -->
+        <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
+          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" onclick="downloadQRCode(location.href)" class="active">
+        </span>
       </nav>
     
       <!--
@@ -42,26 +46,14 @@
       -->
       <ul id="media" class="clearfix">
           
-            <li data-html="#media6"
-                data-download-url="../input/nature/MOV00216.MPG">
-              <a href="../input/nature/MOV00216.MPG">
-                <img src="media/thumbs/nature/MOV00216.jpg"
-                     width="200"
-                     height="200"
-                     alt="MOV00216.MPG" />
-              </a>
-              <img class="video-overlay" src="public/play.png" />
-          
-                <button type="button" class="star" data-fav="false" data-path="nature/MOV00216.MPG">⭐️</button>
-            </li>      
             <li data-src="media/large/nature/photo-1473603477862-9d352d4615e12.jpg"
                 data-sub-html=""
-                data-download-url="../input/nature/photo-1473603477862-9d352d4615e12.jpg"
+                data-download-url="input/nature/photo-1473603477862-9d352d4615e12.jpg"
           
                 data-filename="photo-1473603477862-9d352d4615e12.jpg"
           
               >
-              <a href="../input/nature/photo-1473603477862-9d352d4615e12.jpg">
+              <a href="input/nature/photo-1473603477862-9d352d4615e12.jpg">
                 <img src="media/thumbs/nature/photo-1473603477862-9d352d4615e12.jpg"
                      width="200"
                      height="200"
@@ -69,16 +61,16 @@
               </a>
           
           
-                <button type="button" class="star" data-fav="true" data-path="nature/photo-1473603477862-9d352d4615e12.jpg">⭐️</button>
+                <button type="button" class="star" data-fav="false" data-path="nature/photo-1473603477862-9d352d4615e12.jpg">⭐️</button>
             </li>      
             <li data-src="media/large/nature/photo-1459666644539-a9755287d6b02.jpg"
                 data-sub-html=""
-                data-download-url="../input/nature/photo-1459666644539-a9755287d6b02.jpg"
+                data-download-url="input/nature/photo-1459666644539-a9755287d6b02.jpg"
           
                 data-filename="photo-1459666644539-a9755287d6b02.jpg"
           
               >
-              <a href="../input/nature/photo-1459666644539-a9755287d6b02.jpg">
+              <a href="input/nature/photo-1459666644539-a9755287d6b02.jpg">
                 <img src="media/thumbs/nature/photo-1459666644539-a9755287d6b02.jpg"
                      width="200"
                      height="200"
@@ -105,13 +97,9 @@
     </div>
     <!-- Video loader -->
     <div id="videos">
-          <div id="media6" style="display:none;">
-            <video class="lg-video-object lg-html5 video-js vjs-default-skin vjs-big-play-centered"  poster="media/large/nature/MOV00216.jpg" preload="none" controls>
-              <source src="media/large/nature/MOV00216.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video
-            </video>
-          </div>
     </div>
+    
+    <canvas id="qrCanvas" onclick="qrDownload()" class="qr-canvas"></canvas>
 
     <!-- jQuery -->
     <script src="public/jquery.min.js"></script>
@@ -120,9 +108,14 @@
     <!-- LightGallery -->
     <script src="public/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <!-- Our Extensions to LightGallery -->
     <script src="public/lightgallery/js/lg-fav.js"></script>
-    <!-- Favourite library -->
+    <script src="public/lightgallery/js/lg-qrcode.js"></script>
+    <!-- Favourite JS library -->
     <script src="public/favourite/favourite.js"></script>
+    <!-- QR Code JS library -->
+    <script src="public/qr/qrious.min.js"></script>
+    <script src="public/qr/qr.js"></script>
 
     <script>
       // Instantiate LightGallery for the media elements
@@ -139,7 +132,6 @@
         });
       });
     </script>
-
 
   </body>
 

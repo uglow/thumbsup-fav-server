@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+title Development Inside of Docker\n
+
+skinparam componentStyle rectangle
+hide stereotype
+
+skinparam rectangle {
+    backgroundColor<<entryPoint>> Yellow
+}
+
+package "Local File System (repo)" {
+  [**Build local image**\ndocker build -t fav-server .] <<entryPoint>> as build
+  [**Dockerfile**] as dockerfile
+  [**./run-local.sh**] <<entryPoint>> as entrypoint
+
+  [**Patches** - /patch] as patch
+  [**Config param**\n/config/config.json] as config
+  [**config.theme**\n/app/theme-cards-fav] as theme
+  [**config.themeStyle**\n/config/apiEndpoint.less] as style
+  [**config.albumsFrom**\n/app/theme-cards-fav/albums-from/favourite.js] as style
+
+  [/example/input] as inputSrc
+  [/example/website] as outputSrc
+  [/example/config] as configSrc
+
+  rectangle "Run favserver\n/run-local.sh" as startScript {
+
+  }
+}
+
+package "favserver Docker image" as favserver {
+  [**Volume /input**] as inputDocker
+  [**Volume /output**] as outputDocker
+  [**Volume /config**] as configDocker
+
+  [**Server**\n/src/index.js] as server
+}
+
+build <- dockerfile
+build --d--> favserver : builds
+
+entrypoint --> startScript
+
+patch ----> favserver : copy over **thumbsup**\nbase Docker image
+
+'inputSrc ---> inputDocker
+'outputSrc ---> outputDocker
+'configSrc ---> configDocker
+
+configDocker --> config
+config --> theme
+config --> style
+
+@enduml

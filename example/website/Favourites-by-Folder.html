@@ -29,22 +29,26 @@
       -->
       <nav class="breadcrumbs">
     <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Favourites-by-Folder.html">Favourites by Folder</a>
+        <!-- Generate QR code for current URL -->
+        <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
+          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" onclick="downloadQRCode(location.href)" class="active">
+        </span>
       </nav>
     
       <!--
         Nested albums, if any
       -->
       <div id="albums">
-    <a href="Favourites-by-Folder-nature.html" style="background-image: url('media/small/nature/photo-1473603477862-9d352d4615e12.jpg')">
-            <div class="info">
-              <h3>nature</h3>
-              <div class="summary">2 photos</div>
-              <div class="date">17 Jan 2022 - 17 Jan 2022</div>
-            </div>
-          </a><a href="Favourites-by-Folder-places.html" style="background-image: url('media/small/places/IMG_20211111_145154.jpg')">
+    <a href="Favourites-by-Folder-places.html" style="background-image: url('media/small/places/IMG_20211111_145154.jpg')">
             <div class="info">
               <h3>places</h3>
               <div class="summary">1 album, 1 photo, 1 video</div>
+              <div class="date">17 Jan 2022 - 17 Jan 2022</div>
+            </div>
+          </a><a href="Favourites-by-Folder-nature.html" style="background-image: url('media/small/nature/photo-1459666644539-a9755287d6b02.jpg')">
+            <div class="info">
+              <h3>nature</h3>
+              <div class="summary">1 photo</div>
               <div class="date">17 Jan 2022 - 17 Jan 2022</div>
             </div>
           </a>  </div>
@@ -72,6 +76,8 @@
     <!-- Video loader -->
     <div id="videos">
     </div>
+    
+    <canvas id="qrCanvas" onclick="qrDownload()" class="qr-canvas"></canvas>
 
     <!-- jQuery -->
     <script src="public/jquery.min.js"></script>
@@ -80,9 +86,14 @@
     <!-- LightGallery -->
     <script src="public/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <!-- Our Extensions to LightGallery -->
     <script src="public/lightgallery/js/lg-fav.js"></script>
-    <!-- Favourite library -->
+    <script src="public/lightgallery/js/lg-qrcode.js"></script>
+    <!-- Favourite JS library -->
     <script src="public/favourite/favourite.js"></script>
+    <!-- QR Code JS library -->
+    <script src="public/qr/qrious.min.js"></script>
+    <script src="public/qr/qr.js"></script>
 
     <script>
       // Instantiate LightGallery for the media elements
@@ -99,7 +110,6 @@
         });
       });
     </script>
-
 
   </body>
 

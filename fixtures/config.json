@@ -6,7 +6,7 @@
   "video-download": "link",
   "sort-albums-by": "start-date",
   "theme-path": "/app/theme-cards-fav/theme",
-  "theme-style": "/config/apiEndpoint.less",
+  "theme-style": "/app/fixtures/apiEndpoint.less",
   "cleanup": true,
   "usage-stats": false,
   "albums-from": ["%path", "file:///app/theme-cards-fav/albums-from/favourite.js"]

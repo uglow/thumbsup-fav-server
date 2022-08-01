@@ -175,10 +175,10 @@ button.star {
   top: 0;
 }
 
-// common fav item for thumbnail and light gallery
+// Common fav item for thumbnail and light gallery
 .star {
   border: 0;
-  padding: 0; // buttons have a default padding
+  padding-top: 5px !important; // buttons have a default padding. This centers the button
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,6 +201,35 @@ button.star {
     opacity: 0.7;
   }
 }
+
+// QR Code styles
+.qr-code-btn {
+  cursor: pointer;
+
+  & > img {
+    background: #888;
+    width: 24px;
+    height: 24px;
+
+    &:hover, &.active {
+      background: white;
+    }
+  }
+}
+
+// Hide the qr canvas. We only use it to generate & download a code
+.qr-canvas {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: .1rem;
+  width: .1rem;
+  margin: -.1rem;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
 
 
 #media a {

@@ -29,9 +29,9 @@ These parameters are passed to the NodeJS server for processing.
 
 ## Installation - Local Machine
 
-1. Edit `./run-remote.sh` and change the `input` and `output` source-volumes. By default, these volumes point to `<repo>/example/...`.
+1. Edit `./run-remote.sh` and change the `input` and `output` volumes. By default, these volumes point to `<repo>/example/...`.
 2. Run `./run-remote.sh` to start the server in Docker.
-3. Create a web-server to server the `output` directory. E.g. `cd <outputDir> && python -m SimpleHTTPServer 8000`
+3. Create a web-server to serve the `output` directory. E.g. `cd <outputDir> && python -m SimpleHTTPServer 8000`
 4. Open a browser to `http://localhost:8000/` (or whatever port you have setup in the above step).
 
 ## Installation - Synology
@@ -54,7 +54,7 @@ So here's how to get `ghcr.io/uglow/thumbsup-fav-server:latest` onto the Synolog
 2. From your computer, in a new terminal window: `ssh <user>@<ip.address.for.synology-device>`
 3. Once logged in, `sudo -i` (To be able to use docker on cli. Note: use the same password as your user.)
 4. `docker pull ghcr.io/uglow/thumbsup-fav-server:latest`
-1. Synology: Control Panel -> Terminal & SNMP -> Disable SSH
+5Synology: Control Panel -> Terminal & SNMP -> Disable SSH
 
 After download completes, the image appears in the Synology Docker.
 
@@ -110,20 +110,7 @@ be persisted once the site rebuilds.
 
 ## Development
 
-To build and test the docker image locally:
-
-1. Git clone this repo.
-2. `cd <repo>`
-3. `docker build -t fav-server .` to build the docker image locally (TODO: this is temporary until we host this image somewhere)
-4. `./run-local.sh` to start the server in Docker.
-
-## Patch folder
-
-There is often a delay between raising an issue and receiving the feature/fix. To avoid having to wait too long,
-the files in the `/patch` folder provide a simple way to add missing features until such time as upstream packages are updated (and there is a chance they may never be updated).
-
-Current patches:
-- `patch/thumbsup/node_modules/thumbsup/src/components/index/glob.js`, a fix for [adding mpg support](https://github.com/thumbsup/thumbsup/issues/280). 
+See [DEVELOPERS.md](DEVELOPERS.md).
 
 ## Upgrading
 

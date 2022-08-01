@@ -15,8 +15,9 @@
   "author": "Brett Uglow",
   "license": "MIT",
   "scripts": {
+    "------ 'start' is run by the docker container itself. It is not run by a human. ------": "",
     "start": "nodemon src/index.js -- inputDir=/input rebuildCmd='thumbsup --input /input --output /output --config /config/config.json'",
-    "start:local": "nodemon src/index.js -- inputDir=./example/input rebuildCmd='./thumbgen.sh'",
+    "start:local": "nodemon src/index.js -- inputDir=./example/input rebuildCmd='./thumbsup.sh'",
     "commit-msg": "cz-customizable-ghooks",
     "test": "npm run test:unit -- --watch",
     "test:unit": "node --experimental-vm-modules node_modules/.bin/jest",

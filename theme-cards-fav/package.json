@@ -1,0 +1,11 @@
+{
+  "name": "@thumbsup/theme-cards",
+  "version": "1.3.0",
+  "description": "Thumbsup cards theme - modified for the fav-server usage",
+  "author": "Thumbsup",
+  "license": "MIT",
+  "homepage": "https://github.com/uglow/thumbsup-fav-server/theme-cards-fav",
+  "thumbsup": {
+    "themeRoot": "theme"
+  }
+}

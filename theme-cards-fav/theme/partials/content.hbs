@@ -16,6 +16,10 @@
       <a class="breadcrumb-item" href="{{relative url}}">{{title}}</a>&nbsp;/&nbsp;
     {{~/each~}}
     <a class="breadcrumb-item" href="{{relative album.url}}">{{album.title}}</a>
+    <!-- Generate QR code for current URL -->
+    <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
+      <img alt="Generate QR Code" src="{{relative 'public/lightgallery/img/qr.svg'}}" onclick="downloadQRCode(location.href)" class="active">
+    </span>
   </nav>
 
   <!--

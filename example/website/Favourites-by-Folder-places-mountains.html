@@ -29,6 +29,10 @@
       -->
       <nav class="breadcrumbs">
     <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Favourites-by-Folder.html">Favourites by Folder</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Favourites-by-Folder-places.html">places</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="Favourites-by-Folder-places-mountains.html">mountains</a>
+        <!-- Generate QR code for current URL -->
+        <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
+          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" onclick="downloadQRCode(location.href)" class="active">
+        </span>
       </nav>
     
       <!--
@@ -44,12 +48,12 @@
           
             <li data-src="media/large/places/mountains/photo-1463946377180-f5185c2783e52.jpg"
                 data-sub-html=""
-                data-download-url="../input/places/mountains/photo-1463946377180-f5185c2783e52.jpg"
+                data-download-url="input/places/mountains/photo-1463946377180-f5185c2783e52.jpg"
           
                 data-filename="photo-1463946377180-f5185c2783e52.jpg"
           
               >
-              <a href="../input/places/mountains/photo-1463946377180-f5185c2783e52.jpg">
+              <a href="input/places/mountains/photo-1463946377180-f5185c2783e52.jpg">
                 <img src="media/thumbs/places/mountains/photo-1463946377180-f5185c2783e52.jpg"
                      width="200"
                      height="200"
@@ -77,6 +81,8 @@
     <!-- Video loader -->
     <div id="videos">
     </div>
+    
+    <canvas id="qrCanvas" onclick="qrDownload()" class="qr-canvas"></canvas>
 
     <!-- jQuery -->
     <script src="public/jquery.min.js"></script>
@@ -85,9 +91,14 @@
     <!-- LightGallery -->
     <script src="public/lightgallery/js/lightgallery-all.min.js"></script>
     <script src="public/lightgallery/js/lg-exif.min.js"></script>
+    <!-- Our Extensions to LightGallery -->
     <script src="public/lightgallery/js/lg-fav.js"></script>
-    <!-- Favourite library -->
+    <script src="public/lightgallery/js/lg-qrcode.js"></script>
+    <!-- Favourite JS library -->
     <script src="public/favourite/favourite.js"></script>
+    <!-- QR Code JS library -->
+    <script src="public/qr/qrious.min.js"></script>
+    <script src="public/qr/qr.js"></script>
 
     <script>
       // Instantiate LightGallery for the media elements
@@ -104,7 +115,6 @@
         });
       });
     </script>
-
 
   </body>
 
