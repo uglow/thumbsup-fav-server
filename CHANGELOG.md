@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.6...v1.1.0) (2022-08-01)
+
+
+### Features
+
+* **qr:** add QR code to folder and slide ([5c91b4c](https://github.com/uglow/thumbsup-fav-server/commit/5c91b4ca0a7d1e9ff8013926d88afbf6d46d8659))
+
 ## [1.0.6](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.5...v1.0.6) (2022-01-21)
 
 
