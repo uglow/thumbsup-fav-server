@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/uglow/thumbsup-fav-server/compare/v1.1.0...v1.2.0) (2022-11-06)
+
+
+### Features
+
+* **ui:** add manifest file download ([a21d256](https://github.com/uglow/thumbsup-fav-server/commit/a21d2567dfa016a9a1e879419db10073951b7984))
+
 # [1.1.0](https://github.com/uglow/thumbsup-fav-server/compare/v1.0.6...v1.1.0) (2022-08-01)
 
 
