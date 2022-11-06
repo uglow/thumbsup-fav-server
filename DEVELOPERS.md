@@ -21,14 +21,16 @@ following products on your development machine:
 - [Git](http://git-scm.com) and/or the **GitHub app** (for [Mac](http://mac.github.com) or
   [Windows](http://windows.github.com)); [GitHub's Guide to Installing Git](https://help.github.com/articles/set-up-git) is a good source of information.
 - [Node.js](http://nodejs.org), (version specified in the engines field of [`package.json`](package.json)) which is used to run tests.
+- [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/), to be installed globally
 
 # Installation
 
 1. Git clone this repo.
 2. `cd <repo>`
 3. `npm install`
-4. `npm run start:local` to start the thumbnail generator and the server.
-5. Start a new static webserver in the `<repo>/example/website` folder.
+4. `npm install pm2 -g`
+5. `npm run start:local` to start the thumbnail generator and the server.
+6. Start a new static webserver in the `<repo>/example/website` folder.
 
 ## Using a static webserver
 
@@ -36,7 +38,7 @@ In order to view the changes (and change the favourite-state of a photo), you ne
 run a basic webserver in the output directory that you are targeting. When
 developing locally, that folder is `<repo>/example/website`
 
-## OSX webserver
+### OSX webserver
 
 1. Open a terminal window.
 2. `cd <repo>/example/website`.
@@ -68,7 +70,7 @@ Also, the website needs to refreshed manually after changes are made to the code
 ## Developing outside Docker
 
 This is the best way to do iterative development for this package. Run
-`npm start:local` to start the local Express server using [nodemon](https://github.com/remy/nodemon#nodemon).
+`npm start:local` to start the local Express server using [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/).
 As you make changes to the source code, the server will restart.
 
 Note that when running **outside** of Docker, the patch files (see below) are not applied.
@@ -78,10 +80,14 @@ Note that when running **outside** of Docker, the patch files (see below) are no
 
 Once your changes are working well outside Docker, it's time to test them inside Docker.
 
-1. `docker build -t fav-server .` to build the docker image locally.
-2. `./run-local.sh` to start the server in Docker.
+1. `npm run stop` to stop the local PM2 instances (if any are running)
+2. `docker build -t fav-server .` to build the docker image locally.
+3. `./run-local.sh` to start the **API server** in Docker.
 
-Testing the side **inside** Docker allows the patch files (see below) to be applied.
+Note: At this point, you have an API server running inside docker on port 8080. To see it working,
+you need to start a webserver and connect it to the API server
+
+Testing the site **inside** Docker allows the patch files (see below) to be applied.
 
 # Patch folder
 

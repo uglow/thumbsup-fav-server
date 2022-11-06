@@ -8,7 +8,7 @@ const ini = require('ini');
 const fs = require('fs');
 const path = require('path');
 
-const PICASA_INI = 'picasa.ini'
+const PICASA_INI = 'picasa.ini';
 
 class Picasa {
   constructor(dir) {
@@ -24,12 +24,22 @@ class Picasa {
 
   updateFile(filename, configToMerge) {
     const existingConfig = this.getKeyConfig(filename) || {};
-    this.setKeyConfig(filename, { ...existingConfig, ...configToMerge })
+    this.setKeyConfig(filename, { ...existingConfig, ...configToMerge });
   }
 
   getKeyConfig(keyName) {
     const keyParts = keyName.split('.');
     return getIniValue(this.data, keyParts);
+  }
+
+  // Returns an array of keys (file names) that have star=yes as a property
+  getStarFiles() {
+    // console.log('getStarFiles()_initial', this.data);
+    const keyNames = getKeyNames(this.data);
+    console.log('getStarFiles()', keyNames);
+
+    // Return the keys that have star = yes in their config
+    return keyNames.filter((key) => this.getKeyConfig(key).star === 'yes');
   }
 
   setKeyConfig(keyName, value) {
@@ -38,11 +48,11 @@ class Picasa {
 
     // Build the correct key-structure from the keyName (if the structure does not exist), then set the key's value
     while (keyParts.length > 1) {
-      const key = keyParts.shift()
+      const key = keyParts.shift();
       if (!parentNode[key]) {
-        parentNode[key] = {}
+        parentNode[key] = {};
       }
-      parentNode = parentNode[key]
+      parentNode = parentNode[key];
     }
     parentNode[keyParts[0]] = value;
   }
@@ -69,7 +79,7 @@ function loadIfExists(filepath) {
 
 // The INI parser creates nested objects when the key contains a '.'
 // this is a problem for sections like [IMG_0001.jpg]
-// this might get fixed with https://github.com/npm/ini/issues/60
+// This might get fixed with https://github.com/npm/ini/issues/60
 // but for now we have to recursively get the value
 function getIniValue(iniObject, keyParts) {
   const current = iniObject[keyParts[0]];
@@ -80,6 +90,19 @@ function getIniValue(iniObject, keyParts) {
   } else {
     return getIniValue(current, keyParts.slice(1));
   }
+}
+
+function getKeyNames(iniObject, keyNames = [], parentKey = []) {
+  const keys = Object.keys(iniObject);
+
+  keys.forEach((keyName) => {
+    if (typeof iniObject[keyName] === 'object') {
+      keyNames = getKeyNames(iniObject[keyName], keyNames, parentKey.concat(keyName));
+    } else {
+      keyNames.push(parentKey.join('.'));
+    }
+  });
+  return keyNames;
 }
 
 module.exports = Picasa;

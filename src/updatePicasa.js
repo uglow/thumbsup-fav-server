@@ -12,7 +12,7 @@ const { resolve } = require('path');
 function updatePicasa(params) {
   const { inputDir, isFav, path, file } = params;
   console.log('inputDir', inputDir, ', isFav', isFav, ', path', path, ', file', file);
-  console.log(`Target Picasa.ini: ${resolve(inputDir, path)}`)
+  console.log(`Target Picasa.ini: ${resolve(inputDir, path)}`);
 
   try {
     const picasa = new Picasa(resolve(inputDir, path));

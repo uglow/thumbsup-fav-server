@@ -1,7 +1,7 @@
 {
   "name": "fav-server",
   "version": "1.1.0",
-  "description": "Small Express API to persist changes to favourites in your thumbsup website",
+  "description": "Small Express API to persist changes to your favourite media in your thumbsup website",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -16,14 +16,15 @@
   "license": "MIT",
   "scripts": {
     "------ 'start' is run by the docker container itself. It is not run by a human. ------": "",
-    "start": "nodemon src/index.js -- inputDir=/input rebuildCmd='thumbsup --input /input --output /output --config /config/config.json'",
-    "start:local": "nodemon src/index.js -- inputDir=./example/input rebuildCmd='./thumbsup.sh'",
+    "start": "echo should not be called at all",
+    "start:local": "pm2 start pm2.config.js --only server-local --attach --watch",
+    "stop": "pm2 stop pm2.config.js",
     "commit-msg": "cz-customizable-ghooks",
     "test": "npm run test:unit -- --watch",
     "test:unit": "node --experimental-vm-modules node_modules/.bin/jest",
     "test:report": "npm run test:unit -- --coverage",
-    "lint": "eslint --fix bin/* src/*",
-    "verify": "eslint --max-warnings=0 bin/ src/",
+    "lint": "eslint --fix src/*",
+    "verify": "eslint --max-warnings=0 src/",
     "pre-push": "npm-run-all verify test:report --silent",
     "semantic-release": "semantic-release"
   },
@@ -35,18 +36,12 @@
       "config": "commitMessageConfig.cjs"
     }
   },
-  "nodemonConfig": {
-    "ignore": [
-      "example/*"
-    ],
-    "delay": 2500
-  },
   "dependencies": {
     "cors": "2.8.5",
     "debounce": "1.2.1",
     "express": "4.17.2",
-    "ini": "2.0.0",
-    "nodemon": "2.0.15"
+    "js-event-bus": "1.1.1",
+    "ini": "2.0.0"
   },
   "devDependencies": {
     "@jest/globals": "27.0.6",

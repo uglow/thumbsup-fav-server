@@ -14,20 +14,20 @@ module.exports = {
 
   extends: [
     'plugin:prettier/recommended',
-    'plugin:unicorn/recommended',
+    // 'plugin:unicorn/recommended', // This was recommending import instead of require()
     'plugin:node/recommended-script',
     'plugin:jest/recommended',
   ],
   plugins: ['jest'],
   rules: {
-    // Allow some flexibility here
-    'unicorn/prevent-abbreviations': 'off',
-
-    // Use camelCase for files (and directories - not enforced)
-    'unicorn/filename-case': ['error', { case: 'camelCase' }],
-
-    // Turn off explicit length checks
-    'unicorn/explicit-length-check': 'off',
+    // // Allow some flexibility here
+    // 'unicorn/prevent-abbreviations': 'off',
+    //
+    // // Use camelCase for files (and directories - not enforced)
+    // 'unicorn/filename-case': ['error', { case: 'camelCase' }],
+    //
+    // // Turn off explicit length checks
+    // 'unicorn/explicit-length-check': 'off',
 
     // Turning off because it leads to many uses of the word 'error' in the same block, which is confusing
     // E.g.
@@ -35,10 +35,10 @@ module.exports = {
     //   logger.error(error);
     //   return error(error);
     // }
-    'unicorn/catch-error-name': 'off',
-
-    // This rule is no good for test specs. Need to find a way to disable this for test specs
-    'unicorn/consistent-function-scoping': 'off',
+    // 'unicorn/catch-error-name': 'off',
+    //
+    // // This rule is no good for test specs. Need to find a way to disable this for test specs
+    // 'unicorn/consistent-function-scoping': 'off',
 
     // This rule is breaking at the moment due to ES module support lacking
     'node/no-unsupported-features/es-syntax': 'off',

@@ -22,6 +22,10 @@
       -->
       <header>
         <h1><a href="index.html">Uglow Family Album</a></h1>
+        <div id="server-status">
+          <span id="server-activity"></span>
+          <button id="status-light"></button>
+        </div>
       </header>
     
       <!--
@@ -30,9 +34,13 @@
       <nav class="breadcrumbs">
     <a class="breadcrumb-item" href="index.html">Home</a>&nbsp;/&nbsp;<a class="breadcrumb-item" href="places.html">places</a>
         <!-- Generate QR code for current URL -->
-        <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
-          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" onclick="downloadQRCode(location.href)" class="active">
-        </span>
+        <button type="button" class="nude-btn lg-icon qr-code-btn" title="Download QR Code for this page"
+                onclick="downloadQRCode(location.href)">
+          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" class="active">
+        </button>
+        <!-- Generate file list for current URL -->
+        <button type="button" class="nude-btn lg-icon" title="Generate File List"
+                onclick="downloadFilelist(location.href)">📄</button>
       </nav>
     
       <!--
@@ -54,12 +62,12 @@
           
             <li data-src="media/large/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
                 data-sub-html=""
-                data-download-url="input/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
+                data-download-url="../input/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
           
                 data-filename="photo-1475619530555-3a7fb01c7c4f2.jpg"
           
               >
-              <a href="input/places/photo-1475619530555-3a7fb01c7c4f2.jpg">
+              <a href="../input/places/photo-1475619530555-3a7fb01c7c4f2.jpg">
                 <img src="media/thumbs/places/photo-1475619530555-3a7fb01c7c4f2.jpg"
                      width="200"
                      height="200"
@@ -70,8 +78,8 @@
                 <button type="button" class="star" data-fav="false" data-path="places/photo-1475619530555-3a7fb01c7c4f2.jpg">⭐️</button>
             </li>      
             <li data-html="#media5"
-                data-download-url="input/places/IMG_20211111_145154.mp4">
-              <a href="input/places/IMG_20211111_145154.mp4">
+                data-download-url="../input/places/IMG_20211111_145154.mp4">
+              <a href="../input/places/IMG_20211111_145154.mp4">
                 <img src="media/thumbs/places/IMG_20211111_145154.jpg"
                      width="200"
                      height="200"
@@ -118,11 +126,15 @@
     <!-- Our Extensions to LightGallery -->
     <script src="public/lightgallery/js/lg-fav.js"></script>
     <script src="public/lightgallery/js/lg-qrcode.js"></script>
+    <!-- API Setup & Healthcheck -->
+    <script src="public/api/api.js"></script>
     <!-- Favourite JS library -->
     <script src="public/favourite/favourite.js"></script>
     <!-- QR Code JS library -->
     <script src="public/qr/qrious.min.js"></script>
     <script src="public/qr/qr.js"></script>
+    <!-- File list JS library -->
+    <script src="public/filelist/filelist.js"></script>
 
     <script>
       // Instantiate LightGallery for the media elements

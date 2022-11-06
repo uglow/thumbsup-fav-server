@@ -1,14 +1,13 @@
 /* Add favourite toggle button to the toolbar */
 (function ($, window, document, undefined) {
-  "use strict";
+  'use strict';
 
-  var defaults = {};
-  var ID = "lg-qr-btn";
-  var PATH_ATTR = "data-path";
+  const defaults = {};
+  const ID = 'lg-qr-btn';
 
-  var QRCodeButton = function (element) {
+  const QRCodeButton = function (element) {
     // get lightGallery core plugin data
-    this.core = $(element).data("lightGallery");
+    this.core = $(element).data('lightGallery');
 
     this.$el = $(element);
 
@@ -21,21 +20,19 @@
   };
 
   QRCodeButton.prototype.init = function () {
-    var qrButton = `<span id="${ID}" title="Download QR Code for this image/video" class="lg-icon qr-code-btn"><img width="24" height="24" src="public/lightgallery/img/qr.svg"></span>`;
-    this.core.$outer.find(".lg-toolbar").append(qrButton);
+    const qrButton = `<span id="${ID}" title="Download QR Code for this image/video" class="lg-icon qr-code-btn"><img width="24" height="24" src="public/lightgallery/img/qr.svg"></span>`;
+    this.core.$outer.find('.lg-toolbar').append(qrButton);
 
     // On Click, show the QR Code for the current page
-    $("#lg-qr-btn").on("click.lg", () => {
+    $('#lg-qr-btn').on('click.lg', () => {
       // Use the filename from the span to generate the download file name
       downloadQRCode(location.href);
     });
-
   };
 
   QRCodeButton.prototype.destroy = function () {
-    $(`#${ID}`).off("click.lg");
+    $(`#${ID}`).off('click.lg');
   };
-
 
   $.fn.lightGallery.modules.qrButton = QRCodeButton;
 })(jQuery, window, document);

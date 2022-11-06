@@ -10,6 +10,9 @@ WORKDIR /app
 # Install dependencies
 RUN npm install --production
 
+# Install PM2 globally
+RUN npm install pm2 -g
+
 # Install patches over the top(add mpg support)
 COPY ./patch /
 
@@ -17,5 +20,5 @@ COPY ./patch /
 EXPOSE 8080
 
 # Launch application
-ENTRYPOINT ["npm", "start"]
-CMD [""]
+# ENTRYPOINT ["npm", "start"]
+CMD ["pm2-runtime", "pm2.config.js", "--only", "server-prod"]

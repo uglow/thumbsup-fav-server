@@ -6,6 +6,10 @@
   -->
   <header>
     <h1><a href="{{relative gallery.home.url}}">{{gallery.title}}</a></h1>
+    <div id="server-status">
+      <span id="server-activity"></span>
+      <button id="status-light"></button>
+    </div>
   </header>
 
   <!--
@@ -17,9 +21,13 @@
     {{~/each~}}
     <a class="breadcrumb-item" href="{{relative album.url}}">{{album.title}}</a>
     <!-- Generate QR code for current URL -->
-    <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
-      <img alt="Generate QR Code" src="{{relative 'public/lightgallery/img/qr.svg'}}" onclick="downloadQRCode(location.href)" class="active">
-    </span>
+    <button type="button" class="nude-btn lg-icon qr-code-btn" title="Download QR Code for this page"
+            onclick="downloadQRCode(location.href)">
+      <img alt="Generate QR Code" src="{{relative 'public/lightgallery/img/qr.svg'}}" class="active">
+    </button>
+    <!-- Generate file list for current URL -->
+    <button type="button" class="nude-btn lg-icon" title="Generate File List"
+            onclick="downloadFilelist(location.href)">📄</button>
   </nav>
 
   <!--

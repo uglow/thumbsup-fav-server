@@ -15,7 +15,7 @@ with the favourite-state of images that you toggle the favourite-state for (via 
 
 When the `picasa.ini` files change, the server initiates a rebuild of your site to persist the favourite-state, after a short delay.
 
-[nodemon](https://github.com/remy/nodemon#nodemon) is used to keep the server alive forever, even when there are crashes (which shouldn't happen). 
+[PM2](https://pm2.keymetrics.io/docs/usage/quick-start/) is used to keep the server alive forever, even when there are crashes (which shouldn't happen). 
 Note that "alive forever" means "as long as the Docker container is running" when run inside of a Docker container.
 
 

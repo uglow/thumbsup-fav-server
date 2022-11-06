@@ -5,7 +5,7 @@
 const path = require('path'); // The %path variable doesn't work (in contradiction to the docs), so we just use the same technique that %path maps to.
 
 function favouriteAlbum(file) {
-  return (file.meta.favourite === true) ? ['All Favourites', `Favourites by Folder/${path.dirname(file.path)}`] : []
+  return file.meta.favourite === true ? ['All Favourites', `Favourites by Folder/${path.dirname(file.path)}`] : [];
 }
 
 module.exports = favouriteAlbum;

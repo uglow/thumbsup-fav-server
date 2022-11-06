@@ -22,6 +22,10 @@
       -->
       <header>
         <h1><a href="index.html">Uglow Family Album</a></h1>
+        <div id="server-status">
+          <span id="server-activity"></span>
+          <button id="status-light"></button>
+        </div>
       </header>
     
       <!--
@@ -30,20 +34,24 @@
       <nav class="breadcrumbs">
     <a class="breadcrumb-item" href="index.html">Home</a>
         <!-- Generate QR code for current URL -->
-        <span class="lg-icon qr-code-btn" title="Download QR Code for this page">
-          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" onclick="downloadQRCode(location.href)" class="active">
-        </span>
+        <button type="button" class="nude-btn lg-icon qr-code-btn" title="Download QR Code for this page"
+                onclick="downloadQRCode(location.href)">
+          <img alt="Generate QR Code" src="public/lightgallery/img/qr.svg" class="active">
+        </button>
+        <!-- Generate file list for current URL -->
+        <button type="button" class="nude-btn lg-icon" title="Generate File List"
+                onclick="downloadFilelist(location.href)">📄</button>
       </nav>
     
       <!--
         Nested albums, if any
       -->
       <div id="albums">
-    <a href="nature.html" style="background-image: url('media/small/nature/photo-1473603477862-9d352d4615e12.jpg')">
+    <a href="nature.html" style="background-image: url('media/small/nature/MOV00216.jpg')">
             <div class="info">
               <h3>nature</h3>
-              <div class="summary">2 photos</div>
-              <div class="date">17 Jan 2022 - 17 Jan 2022</div>
+              <div class="summary">2 photos, 1 video</div>
+              <div class="date">12 May 2001 - 17 Jan 2022</div>
             </div>
           </a><a href="places.html" style="background-image: url('media/small/places/photo-1475619530555-3a7fb01c7c4f2.jpg')">
             <div class="info">
@@ -101,11 +109,15 @@
     <!-- Our Extensions to LightGallery -->
     <script src="public/lightgallery/js/lg-fav.js"></script>
     <script src="public/lightgallery/js/lg-qrcode.js"></script>
+    <!-- API Setup & Healthcheck -->
+    <script src="public/api/api.js"></script>
     <!-- Favourite JS library -->
     <script src="public/favourite/favourite.js"></script>
     <!-- QR Code JS library -->
     <script src="public/qr/qrious.min.js"></script>
     <script src="public/qr/qr.js"></script>
+    <!-- File list JS library -->
+    <script src="public/filelist/filelist.js"></script>
 
     <script>
       // Instantiate LightGallery for the media elements
