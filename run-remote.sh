@@ -10,4 +10,4 @@ docker run -t \
   -v "$(pwd)/example/config:/config" \
   -u root \
   -p 8080:8080 \
-  ghcr.io/uglow/thumbsup-fav-server:latest
+  ghcr.io/uglow/thumbsup-fav-server:1.2.0

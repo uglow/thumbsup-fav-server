@@ -85,7 +85,7 @@ Once your changes are working well outside Docker, it's time to test them inside
 3. `./run-local.sh` to start the **API server** in Docker.
 
 Note: At this point, you have an API server running inside docker on port 8080. To see it working,
-you need to start a webserver and connect it to the API server
+you need to start a webserver (see OSX Webserver) to see it running.
 
 Testing the site **inside** Docker allows the patch files (see below) to be applied.
 

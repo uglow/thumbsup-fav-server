@@ -54,7 +54,7 @@ So here's how to get `ghcr.io/uglow/thumbsup-fav-server:latest` onto the Synolog
 2. From your computer, in a new terminal window: `ssh <user>@<ip.address.for.synology-device>`
 3. Once logged in, `sudo -i` (To be able to use docker on cli. Note: use the same password as your user.)
 4. `docker pull ghcr.io/uglow/thumbsup-fav-server:latest`
-5Synology: Control Panel -> Terminal & SNMP -> Disable SSH
+5. Synology: Control Panel -> Terminal & SNMP -> Disable SSH
 
 After download completes, the image appears in the Synology Docker.
 
@@ -63,13 +63,16 @@ After download completes, the image appears in the Synology Docker.
 In this step we will provide the Thumbsup theme and config required by the Docker image.
 
 When Docker is installed on Synology, a `/docker` share folder is created. We need to create a sub-folder for the
-thumbsup-fav-server config.
+thumbsup-fav-server config, and copy the `theme-cards-fav` files here.
 
 1. Open a new terminal window.
 2. `git clone https://github.com/uglow/thumbsup-fav-server.git` to copy the source code, **which includes example config**.
 3. Copy the files from `<gitRepo>/example/config` to Synology `/docker/fav-server/config`.
-4. Edit `config.json` to supply the [Thumbsup config](https://thumbsup.github.io/docs/3-configuration/misc-settings/).
+4. Copy the files from `<gitRepo>/theme-cards-fav` to Synology `/docker/fav-server/config/theme-cards-fav`.
+   **This updates the templates used to generate the web pages.**
+5. Edit `config.json` to supply the [Thumbsup config](https://thumbsup.github.io/docs/3-configuration/misc-settings/).
    1. **Do not change the following properties**: `theme-path`, `theme-style`, `albums-from`
+
 
 ### 3. Setup Synology Web Station
 
@@ -80,12 +83,16 @@ But on a Synology NAS, the easiest way is to use Synology Web Station.
 2. Install the "Web Station" package. Once this is installed you will see a new share-folder
    called `/web`. This will be where the Thumbsup-generated website will be published to.
 
+### 3b. Stop any previous container
+
+1. Synology: Docker > Container > Select `uglow/thumbsup-fav-server_x_y_z` > Stop Running
+
 ### 4. Configure & Run
 
 1. Synology: Docker > Image > Select `uglow/thumbsup-fav-server` > Launch:
    ![](docs/run.1.png)
 
-2. Enter the container name, then press "Advanced Settings"
+2. Enter the container name as `thumbsup-fav-server_x_y_z`, then press "Advanced Settings"
    ![](docs/run.2.png)
 
 3. Advanced Settings > Enable auto-restart. Optionally create a shortcut on the desktop.
@@ -100,8 +107,13 @@ But on a Synology NAS, the easiest way is to use Synology Web Station.
 5. (optional) Environment Tab, set the Command to `rebuild\=5` to rebuild the website after waiting for 5 seconds.
    **Note**: As per [this article](https://stackoverflow.com/questions/56833111/how-to-pass-command-parameters-with-arguments-for-e-g-param1-arg1-to-docker), the `=` characters have to be escaped with `\`. E.g. `inputDir\=...`
    ![](docs/run.5.png)
-6. Press Apply.
-7. Review the changes, then press Done.
+
+6. On the Network tab, set the host port and container port to 8080. If you get a warning
+   about the port being used, edit the configuration of the container that is using the port
+   and assign it a different local port 
+
+7. Press Apply.
+8. Review the changes, then press Done.
 
 ## Running
 
